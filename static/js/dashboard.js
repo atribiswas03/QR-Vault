@@ -183,62 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ────────── DELETE & COPY LISTENERS ────────── //
-document.addEventListener("DOMContentLoaded", () => {
-  const deleteBtn = document.getElementById("confirmDeleteBtn");
-  if (deleteBtn) {
-    deleteBtn.addEventListener("click", () => {
-      if (!deleteId) {
-        alert("⚠️ No item selected.");
-        return;
-      }
-      fetch(`/delete_qr/${deleteId}`, { method: "DELETE" })
-        .then(res => res.json())
-        .then(data => {
-          if (data.status === "success") location.reload();
-          else alert("❌ Failed to delete the QR entry.");
-        })
-        .catch(() => alert("⚠️ Something went wrong. Please try again."))
-        .finally(() => hideDeleteConfirm());
-    });
-  }
-
-  const copyBtn = document.getElementById("copyBtn");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", () => {
-      const message = document.getElementById("decodedMessage")?.innerText;
-      if (!message) return;
-
-      navigator.clipboard.writeText(message).then(() => {
-        const toast = document.getElementById("copyToast");
-        if (toast) {
-          toast.classList.remove("hidden");
-          setTimeout(() => toast.classList.add("hidden"), 2000);
-        }
-      });
-    });
-  }
-
-  // Decoded message auto-close
-  const decodedPopup = document.getElementById("decodedPopup");
-  const closeTimer = document.getElementById("closeTimer");
-  if (decodedPopup && !decodedPopup.classList.contains("hidden")) {
-    let countdown = 10;
-    closeTimer.textContent = countdown;
-    const autoClose = setInterval(() => {
-      countdown--;
-      closeTimer.textContent = countdown;
-      if (countdown <= 0) {
-        decodedPopup.classList.add("hidden");
-        clearInterval(autoClose);
-      }
-    }, 1000);
-  }
-});
-
-
-
-
 // ────────── SHOW PROFILE MODAL ────────── //
 
 function openProfileModal() {
@@ -278,16 +222,6 @@ function openProfileModal() {
       showCustomWarning("❌ Failed to load profile. Please try again.");
     });
 }
-
-// function showCustomWarning(msg) {
-//   const modal = document.getElementById("customWarningModal");
-//   const message = document.getElementById("warningMessage");
-//   if (modal && message) {
-//     message.textContent = msg;
-//     modal.classList.remove("hidden");
-//   }
-// }
-
 
 // ────────── HIDE PROFILE MODAL ────────── //
 function closeProfileModal() {
@@ -413,17 +347,6 @@ document.getElementById("profileForm")?.addEventListener("submit", function (e) 
     .catch(() => showCustomWarning("❌ Server error. Try again later."))
     .finally(() => (profileSubmitting = false));
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 function togglePasswordVisibility() {
