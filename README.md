@@ -1,4 +1,4 @@
-#🔐✨ QR Vault in Action — Secure Your Data with Encrypted QR Magic! 🎥
+🔐✨ QR Vault in Action — Secure Your Data with Encrypted QR Magic! 🎥
 
 #Part 1
 https://github.com/user-attachments/assets/46de8ce3-f1df-4583-91c2-c62ad14ba9c4
