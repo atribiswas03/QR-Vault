@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to QR Vault</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="/static/css/firefly.css" rel="stylesheet" />
+  </head>
+  <body
+    class="bg-gray-900 text-white flex items-center justify-center h-screen"
+  >
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <!-- Logo with Home Link -->
+    <a href="/" class="absolute top-4 left-4">
+      <img
+        src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="QR Vault Logo"
+        class="h-20 w-auto hover:scale-105 transition duration-300"
+      />
+    </a>
+    <div class="text-center space-y-6">
+      <h1 class="text-4xl font-bold">🔐 QR Vault</h1>
+      <p class="text-gray-300">Securely store and encrypt your QR data.</p>
+      <div class="space-x-4">
+        <a href="/login" class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+          >Login</a
+        >
+        <a
+          href="/register"
+          class="bg-green-500 px-4 py-2 rounded hover:bg-green-600"
+          >Register</a
+        >
+        <a
+          href="/contact"
+          class="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-600"
+          >Contact Us</a
+        >
+      </div>
+      <div>
+        <a
+          href="/terms"
+          class="text-sm text-gray-400 hover:text-white hover:underline no-underline"
+          >📄 Terms & Conditions</a
+        >
+      </div>
+    </div>
+    <footer class="absolute bottom-4 w-full text-center text-xs text-gray-500">
+      &copy; {{ year or 2025 }} QR Vault. All rights reserved. Designed by
+      <a
+        href="https://www.linkedin.com/in/atri-biswas"
+        target="_blank"
+        class="underline text-blue-300"
+        >Atri Biswas</a
+      >
+    </footer>
+  </body>
+</html>

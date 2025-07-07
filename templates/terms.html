@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Conditions | QR Vault</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link rel="stylesheet" href="/static/css/firefly.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <a href="/" class="absolute top-4 left-4">
+      <img
+        src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="QR Vault Logo"
+        class="h-20 w-auto hover:scale-105 transition duration-300"
+      />
+    </a>
+
+    <div class="max-w-4xl mx-auto p-6 mt-12 bg-gray-800 rounded-xl shadow-lg">
+      <div class="mb-6 text-center">
+        <h1 class="text-3xl font-bold">📄 Terms & Conditions</h1>
+        <p class="text-gray-400 mt-2 text-sm">
+          Effective Date: {{ year or 2025 }}
+        </p>
+      </div>
+
+      <div class="space-y-6 text-sm text-gray-300 leading-relaxed">
+        <p>
+          <strong>Welcome to QR Vault!</strong> These Terms & Conditions
+          ("Terms") govern your access to and use of the QR Vault web
+          application. By registering or using this service, you agree to these
+          terms.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">1. Use of Service</h2>
+        <p>
+          QR Vault allows users to securely generate, store, and decode QR codes
+          containing encrypted data. You agree to use the service only for
+          lawful purposes and not to misuse it in any way.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">
+          2. Account Registration
+        </h2>
+        <p>
+          When you register, you must provide accurate information including
+          your email and phone number. You are responsible for maintaining the
+          confidentiality of your credentials.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">3. Security</h2>
+        <p>
+          We take data security seriously. QR Vault encrypts your secret
+          information using industry-standard methods. However, we cannot
+          guarantee absolute security over the internet.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">4. Data Storage</h2>
+        <p>
+          Your data (QR entries, encrypted tokens, and keys) are stored securely
+          in our database. We do not share your personal data with third
+          parties.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">
+          5. Email & OTP Verification
+        </h2>
+        <p>
+          To ensure authenticity, we verify your identity through a one-time
+          password (OTP) sent to your email. It is valid for a short duration
+          and should not be shared with anyone.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">
+          6. Limitation of Liability
+        </h2>
+        <p>
+          QR Vault is provided "as is" without warranties of any kind. We are
+          not liable for any damages arising out of the use or inability to use
+          this service.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">7. Changes to Terms</h2>
+        <p>
+          We may update these Terms from time to time. Changes will be effective
+          immediately upon posting on this page.
+        </p>
+
+        <h2 class="text-xl text-white font-semibold">8. Contact</h2>
+        <p>
+          If you have any questions about these Terms, please contact us at
+          <a
+            href="mailto:detectorfakenews39@gmail.com"
+            class="text-green-400 underline"
+            >Click Here</a
+          >.
+        </p>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/" class="text-sm text-blue-400 hover:underline"
+          >← Back to Home</a
+        >
+      </div>
+    </div>
+
+    <footer class="text-center text-xs text-gray-500 py-6 mt-auto">
+      &copy; {{ year or 2025 }} QR Vault. All rights reserved. Designed by
+      <a
+        href="https://www.linkedin.com/in/atri-biswas"
+        target="_blank"
+        class="text-blue-300 underline"
+        >Atri Biswas</a
+      >
+    </footer>
+  </body>
+</html>

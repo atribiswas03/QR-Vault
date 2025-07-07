@@ -1,0 +1,122 @@
+[
+  {
+    "name": "United States",
+    "dial_code": "+1",
+    "code": "US"
+  },
+  {
+    "name": "India",
+    "dial_code": "+91",
+    "code": "IN"
+  },
+  {
+    "name": "United Kingdom",
+    "dial_code": "+44",
+    "code": "GB"
+  },
+  {
+    "name": "Japan",
+    "dial_code": "+81",
+    "code": "JP"
+  },
+  {
+    "name": "Australia",
+    "dial_code": "+61",
+    "code": "AU"
+  },
+  {
+    "name": "Germany",
+    "dial_code": "+49",
+    "code": "DE"
+  },
+  {
+    "name": "China",
+    "dial_code": "+86",
+    "code": "CN"
+  },
+  {
+    "name": "France",
+    "dial_code": "+33",
+    "code": "FR"
+  },
+  {
+    "name": "Italy",
+    "dial_code": "+39",
+    "code": "IT"
+  },
+  {
+    "name": "Russia",
+    "dial_code": "+7",
+    "code": "RU"
+  },
+  {
+    "name": "South Korea",
+    "dial_code": "+82",
+    "code": "KR"
+  },
+  {
+    "name": "Bangladesh",
+    "dial_code": "+880",
+    "code": "BD"
+  },
+  {
+    "name": "Pakistan",
+    "dial_code": "+92",
+    "code": "PK"
+  },
+  {
+    "name": "Saudi Arabia",
+    "dial_code": "+966",
+    "code": "SA"
+  },
+  {
+    "name": "UAE",
+    "dial_code": "+971",
+    "code": "AE"
+  },
+  {
+    "name": "Spain",
+    "dial_code": "+34",
+    "code": "ES"
+  },
+  {
+    "name": "Sweden",
+    "dial_code": "+46",
+    "code": "SE"
+  },
+  {
+    "name": "Netherlands",
+    "dial_code": "+31",
+    "code": "NL"
+  },
+  {
+    "name": "Switzerland",
+    "dial_code": "+41",
+    "code": "CH"
+  },
+  {
+    "name": "Brazil",
+    "dial_code": "+55",
+    "code": "BR"
+  },
+  {
+    "name": "Malaysia",
+    "dial_code": "+60",
+    "code": "MY"
+  },
+  {
+    "name": "Singapore",
+    "dial_code": "+65",
+    "code": "SG"
+  },
+  {
+    "name": "Sri Lanka",
+    "dial_code": "+94",
+    "code": "LK"
+  },
+  {
+    "name": "South Africa",
+    "dial_code": "+27",
+    "code": "ZA"
+  }
+]

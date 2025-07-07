@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | QR Vault</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link rel="stylesheet" href="/static/css/firefly.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/js/login.js"></script>
+  </head>
+  <body
+    class="bg-gray-900 text-white flex items-center justify-center h-screen relative"
+  >
+    <!-- Fireflies -->
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <a href="/" class="absolute top-4 left-4">
+      <img
+        src="{{ url_for('static', filename='images/logo.png') }}"
+        alt="QR Vault Logo"
+        class="h-20 w-auto hover:scale-105 transition duration-300"
+      />
+    </a>
+    <div class="w-full max-w-sm p-6 rounded-xl bg-gray-800 shadow-md z-10">
+      <h2 class="text-2xl font-bold mb-6 text-center">🔐 QR Vault Login</h2>
+
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="bg-red-500 text-white text-sm p-2 rounded mb-4 text-center">
+        {{ messages[0] }}
+      </div>
+      {% endif %} {% endwith %}
+
+      <form method="POST" action="/login" id="loginForm">
+        <div class="mb-4">
+          <input type="hidden" id="purposeField" name="purpose" value="login" />
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="emailField"
+            required
+            autocomplete="email"
+            class="mt-1 w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="password" class="block text-sm font-medium"
+            >Password</label
+          >
+          <div class="relative">
+            <input
+              type="password"
+              name="password"
+              id="passwordField"
+              required
+              autocomplete="new-password"
+              class="w-full px-4 py-2 pr-10 bg-gray-700 border border-gray-600 rounded focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              type="button"
+              onclick="togglePassword()"
+              id="eyeBtn"
+              class="absolute right-2 top-2 text-lg text-gray-400 hover:text-white"
+            >
+              👁️
+            </button>
+          </div>
+        </div>
+        <input type="hidden" id="local_login_time" name="local_login_time" />
+        <input type="hidden" id="time_zone" name="time_zone" />
+
+        <input type="hidden" name="otp" id="otpInput" />
+
+        <!-- OTP Send Button -->
+        <button
+          type="button"
+          onclick="triggerLoginOTP()"
+          id="sendOtpBtn"
+          class="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2 rounded flex justify-center items-center gap-2"
+        >
+          <span id="sendOtpText">Send OTP</span>
+          <svg
+            id="sendSpinner"
+            class="w-5 h-5 animate-spin hidden text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 018 8h-4l3 3 3-3h-4a8 8 0 01-8 8v-4l-3 3 3 3v-4a8 8 0 01-8-8z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+      <div class="text-right mt-2 mb-6">
+        <a href="/forgot-password" class="text-sm text-blue-400 hover:underline"
+          >Forgot Password?</a
+        >
+      </div>
+
+      <p class="text-sm text-center mt-6">
+        Don't have an account?
+        <a href="/register" class="text-blue-400 hover:underline">Register</a>
+      </p>
+    </div>
+
+    <!-- OTP Modal -->
+    <div
+      id="otpModal"
+      class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+    >
+      <div class="bg-gray-800 p-6 rounded-xl w-full max-w-sm">
+        <h2 class="text-xl font-bold mb-4 text-center">Verify Your Email</h2>
+        <p class="text-sm text-gray-300 text-center mb-4">
+          We sent a 6-digit OTP to your email. Expires in
+          <span id="countdown">60</span>s.
+        </p>
+        <input
+          type="text"
+          maxlength="6"
+          id="otpField"
+          class="w-full px-4 py-2 rounded bg-gray-700 border border-gray-600 text-white mb-4"
+          placeholder="Enter OTP"
+          required
+        />
+        <button
+          onclick="submitLoginOTP()"
+          id="verifyBtn"
+          class="w-full bg-blue-500 hover:bg-blue-600 py-2 rounded font-semibold"
+        >
+          Verify & Login
+        </button>
+        <p class="text-red-500 text-sm mt-2 hidden text-center" id="otpExpired">
+          OTP expired. Please reload.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

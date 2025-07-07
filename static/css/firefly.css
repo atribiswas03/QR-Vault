@@ -1,0 +1,136 @@
+/* Container spans entire document, not just the viewport */
+.firefly-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Individual fireflies */
+.firefly {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(#fff800, #ffcc00, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fly 15s infinite ease-in-out alternate;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+}
+
+/* Keyframe movement */
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: translate(50px, -60px) scale(1.2);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-80px, 40px) scale(1.4);
+    opacity: 0.5;
+  }
+
+  75% {
+    transform: translate(60px, 90px) scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Positioning delays and locations */
+.firefly:nth-child(1) {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.firefly:nth-child(2) {
+  top: 20%;
+  left: 90%;
+  animation-delay: 2s;
+}
+
+.firefly:nth-child(3) {
+  top: 30%;
+  left: 30%;
+  animation-delay: 3s;
+}
+
+.firefly:nth-child(4) {
+  top: 40%;
+  left: 60%;
+  animation-delay: 1.5s;
+}
+
+.firefly:nth-child(5) {
+  top: 60%;
+  left: 15%;
+  animation-delay: 4s;
+}
+
+.firefly:nth-child(6) {
+  top: 70%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+.firefly:nth-child(7) {
+  top: 80%;
+  left: 45%;
+  animation-delay: 3.5s;
+}
+
+.firefly:nth-child(8) {
+  top: 90%;
+  left: 85%;
+  animation-delay: 6s;
+}
+
+.firefly:nth-child(9) {
+  top: 50%;
+  left: 10%;
+  animation-delay: 2.5s;
+}
+
+.firefly:nth-child(10) {
+  top: 5%;
+  left: 95%;
+  animation-delay: 1s;
+}
+
+.firefly:nth-child(11) {
+  top: 15%;
+  left: 25%;
+  animation-delay: 4.5s;
+}
+
+.firefly:nth-child(12) {
+  top: 25%;
+  left: 55%;
+  animation-delay: 3s;
+}
+
+.firefly:nth-child(13) {
+  top: 35%;
+  left: 75%;
+  animation-delay: 5.5s;
+}
+
+.firefly:nth-child(14) {
+  top: 45%;
+  left: 35%;
+  animation-delay: 6.5s;
+}
